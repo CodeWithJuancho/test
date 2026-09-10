@@ -1,0 +1,27 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Clasificacion">
+    <xs:annotation>
+      <xs:documentation>Escribe un documento XML bien formado para representar la clasificación del grupo A de la Champinos League de la temporada 2019-2020</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="Temporada"/>
+        <xs:element type="xs:string" name="Grupo"/>
+        <xs:element name="Equipo" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element type="xs:float" name="PJ"/>
+              <xs:element type="xs:float" name="V"/>
+              <xs:element type="xs:float" name="E"/>
+              <xs:element type="xs:float" name="D"/>
+              <xs:element type="xs:float" name="GF"/>
+              <xs:element type="xs:float" name="GC"/>
+              <xs:element type="xs:float" name="DG"/>
+              <xs:element type="xs:float" name="Pts"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,5 @@
+CALL gds.localClusteringCoefficient.stream('myGraph2')
+YIELD nodeId, localClusteringCoefficient
+RETURN gds.util.asNode(nodeId).id
+AS name, localClusteringCoefficient
+ORDER BY localClusteringCoefficient DESC

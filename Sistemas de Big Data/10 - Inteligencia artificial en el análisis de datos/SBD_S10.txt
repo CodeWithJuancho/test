@@ -1,0 +1,3 @@
+No hay presentaciones de SBD_S10 porque los vídeos son prácticos,
+y tanto los ejemplos de código como las imágenes que aparecen en estos
+ya se proporcionan en la carpeta de Ejemplos de Codigo Fuente y en la Documentación.

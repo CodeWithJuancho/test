@@ -1,0 +1,4 @@
+MATCH(JS:Hashtag{name:'JoaquinSabina'})
+MATCH(FD:Hashtag{name:'Feliz Domingo'})
+MERGE (JS)-[:COOC{ntweet:52}]-(FD)
+

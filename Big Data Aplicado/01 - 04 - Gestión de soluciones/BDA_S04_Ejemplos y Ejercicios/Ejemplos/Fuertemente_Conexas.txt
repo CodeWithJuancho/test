@@ -1,0 +1,7 @@
+CALL gds.alpha.scc.stream({
+  nodeProjection: 'User',
+  relationshipProjection: 'FOLLOWS'
+})
+YIELD nodeId, componentId
+RETURN gds.util.asNode(nodeId).id AS Name, componentId AS Component
+ORDER BY Component DESC

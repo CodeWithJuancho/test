@@ -1,0 +1,16 @@
+/*Importar el archivo restaurantes1.csv*/
+/* En una terminal distinta a donde tenemos ejecutado mongosh escribir el siguiente comando mongoimport --db nombre_bd --collection nombre_collection --file nombre_archivo*/
+mongoimport --db ejemplo --collection restaurantes --file Desktop/restaurantes1.csv
+/* Crear una consultar para encontrar qué restaurantes no tienen dirección */
+db.restaurants.find({address:{$exists:false}})
+/* Crear una consulta para encontrar aquellos restaurantes de cocina italiana que se encuentren en la zona geográfica con código postal 10075
+db.restaurants.find({$and:[{"cuisine":"Italian"},{"address.zipcode":"10075"}]})
+/* Encontrar aquellos restaurantes que tengan grado A, puntuación 11 y fecha 2014-10-01T00:00:00Z
+db.restaurants.find({grades:{"date":ISODate("2014-10-01T00:00:00Z"),"grade":"A","score":11}})
+/*Contabiliza cuántos restaurantes tienen una puntuación menor o igual a 5*/
+db.restaurants.find({"grades.score":{$lt:5}}).count()
+/* Obtener los nombres del segundo y el tercer restaurante de cocina italiana ordenados por nombre*/
+{"cuisine":"Italian"}).sort({name:1}).limit(2).skip(1)
+/*Añadir una valoración al restaurante 41156888*/
+db.restaurants.update({"restaurant_id":"41156888"},{$push:{grades:
+{"date":ISODate("2016-01-02T00:00:00.000Z"),"grade":"A","score":14}}})

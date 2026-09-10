@@ -1,0 +1,13 @@
+CALL gds.graph.create(
+  'myGraph',
+  'User',
+  {
+    FOLLOWS: {
+      orientation: 'REVERSE'
+    }
+  }
+)
+CALL gds.degree.stream('myGraph')
+YIELD nodeId, score
+RETURN gds.util.asNode(nodeId).id AS name, score AS followers
+ORDER BY followers DESC, name DESC

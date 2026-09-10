@@ -1,0 +1,21 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="E-mail">
+    <xs:annotation>
+      <xs:documentation>Escribe un documento XML bien formado para representar el siguiente correo electrónico
+
+	De: JulioAlberto.Lopez@uclm.es
+	Para: alumnox_cursoiabigdata@gmail.com
+	CC: julioalbertolopezgomez@gmail.com
+	Asunto: Tutoría
+	Cuerpo: Estimado Alumno X. Las tutorías de este semana se desarrollarán el próximo Jueves de 18:00 a 19:00 horas. Saludos. Julio A.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="De"/>
+        <xs:element type="xs:string" name="Para"/>
+        <xs:element type="xs:string" name="CC"/>
+        <xs:element type="xs:string" name="Asunto" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,18 @@
+CREATE
+       (JS:Hashtag {name: 'JoaquinSabina'}),
+       (RS:Hashtag {name: 'Rusia2018'}),
+       (AG:Hashtag {name: 'Argentina'}),
+       (FD:Hashtag {name: 'Feliz Domingo'}),
+       (MS:Hashtag {name: 'Messi'}),
+
+       (JS)-[:COOC {ntweet: 52}]->(FD),
+       (FD)-[:COOC {ntweet: 52}]->(JS),
+       (RS)-[:COOC {ntweet: 183}]->(FD),
+       (FD)-[:COOC {ntweet: 183}]->(RS),
+       (RS)-[:COOC {ntweet: 73}]->(AG),
+       (AG)-[:COOC {ntweet: 73}]->(RS),
+       (AG)-[:COOC {ntweet: 112}]->(MS),
+       (MS)-[:COOC {ntweet: 112}]->(AG),
+       (FD)-[:COOC {ntweet: 81}]->(MS),
+       (MS)-[:COOC {ntweet: 81}]->(FD)
+

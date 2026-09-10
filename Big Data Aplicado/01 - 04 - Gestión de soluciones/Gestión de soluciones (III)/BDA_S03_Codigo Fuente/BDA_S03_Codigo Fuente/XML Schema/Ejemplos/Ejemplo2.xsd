@@ -1,0 +1,25 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Autor">
+    <xs:annotation>
+      <xs:documentation>Escribe un documento XML bien formado para representar el índice de contenidos de la entrada en Wikipedia sobre el escritor español de la generación del 27 Pedro Salinas</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="Nombre"/>
+        <xs:element name="Indice">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Elemento" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Subelemento" maxOccurs="unbounded" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

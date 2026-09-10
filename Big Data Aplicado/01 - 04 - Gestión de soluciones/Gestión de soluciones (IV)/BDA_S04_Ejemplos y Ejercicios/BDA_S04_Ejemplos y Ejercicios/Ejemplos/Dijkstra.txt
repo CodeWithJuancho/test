@@ -1,0 +1,15 @@
+MATCH (source:Place{id:'Amsterdam'})
+CALL gds.allShortestPaths.dijkstra.stream('myGraph', {
+    sourceNode: source,
+    relationshipWeightProperty: 'distance'
+})
+YIELD index, sourceNode, targetNode, totalCost, nodeIds, costs, path
+RETURN
+    index,
+    gds.util.asNode(sourceNode).id AS sourceNodeName,
+    gds.util.asNode(targetNode).id AS targetNodeName,
+    totalCost,
+    [nodeId IN nodeIds | gds.util.asNode(nodeId).id] AS nodeNames,
+    costs,
+    nodes(path) as path
+ORDER BY index

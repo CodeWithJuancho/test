@@ -1,0 +1,26 @@
+<!-- ENUNCIADO -->
+<!-- Se desea modelar en XML la información de los distintos modelos de coche que vende un concesionario. En un momento dado la lista de modelos puede estar vacía, o contener 1 o varios modelos diferentes. Cada modelo se identifica mediante una referencia única, y se puede incluir una descripción del mismo entre las que pueden aparecer el tipo de motor, potencia y consumo medio. Además, para cada modelo se puede incluir una lista de otros modelos con los que está relacionado (los otros modelos deben existir en el ejemplar del documento). El motor también debe incluir al menos una referencia a algún modelo relacionado. Para un mismo modelo se puede incluir más de un valor de consumo medio, según la velocidad. Construir una DTD que cumpla estor requisitos, y crear un ejemplar de documento válido para esa DTD con la información de la imagen que hay en la carpeta donde se encuentra este documento:   -->
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE Concesionario [
+  <!ELEMENT Concesionario (Modelo)*>
+  <!ELEMENT Modelo (#PCDATA | Motor | Potencia | Consumo_medio)*>
+  <!ELEMENT Motor		(#PCDATA)>
+  <!ELEMENT Potencia		(#PCDATA)><!-- En CV. -->
+  <!ELEMENT Consumo_medio	(#PCDATA)><!-- En litros. -->
+  <!ATTLIST Modelo 	id ID #REQUIRED
+			Modelos_relacionados IDREFS #IMPLIED
+  >
+  <!ATTLIST Motor Modelos_relacionados IDREFS #REQUIRED>
+
+  <!ATTLIST Consumo_medio Velocidad_km CDATA "" >
+]>
+<Concesionario>
+	<Modelo id="Modelo556">No disponible</Modelo>
+	<Modelo id="Modelo555" Modelos_relacionados="Modelo444 Modelo556">
+		Este modelo tiene un <Motor Modelos_relacionados="Modelo556">1.998cc 16v. de cuatro cilindros</Motor> que desarrolla una potencia de <Potencia>128</Potencia> CV. Dispone de cambio manual ... el consumo medio de este monovolumen es <Consumo_medio Velocidad_km="100">11</Consumo_medio> a los 100 km. El precio base es de 2.225.000.</Modelo>
+	<Modelo id="Modelo557">No disponible</Modelo>
+	<Modelo id="Modelo154">No disponible</Modelo>
+	<Modelo id="Modelo444" Modelos_relacionados="Modelo555 Modelo154">
+		Este modelo tiene un <Motor Modelos_relacionados="Modelo556">2.000cc 16v. de cuatro cilindros</Motor> con <Potencia>128</Potencia> CV. Dispone de cambio manual ... el consumo medio de este monovolumen es <Consumo_medio Velocidad_km="100">11</Consumo_medio> a los 100 km. El precio base es de 2.500.000.</Modelo>
+</Concesionario>

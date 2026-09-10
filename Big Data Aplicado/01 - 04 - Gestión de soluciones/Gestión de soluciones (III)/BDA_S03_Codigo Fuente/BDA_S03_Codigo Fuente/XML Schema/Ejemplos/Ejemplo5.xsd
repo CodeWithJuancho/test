@@ -1,0 +1,31 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Conjugacion">
+    <xs:annotation>
+      <xs:documentation>Escribe un documento XML bien formado para representar los tiempos verbales simples del modo indicativo para el verbo cantar, de la primera conjugación.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="Verbo"/>
+        <xs:element type="xs:string" name="Conjugacion"/>
+        <xs:element name="Tiempos_Simples">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Tiempo" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Singular1"/>
+                    <xs:element type="xs:string" name="Singular2"/>
+                    <xs:element type="xs:string" name="Singular3"/>
+                    <xs:element type="xs:string" name="Plural1"/>
+                    <xs:element type="xs:string" name="Plural2"/>
+                    <xs:element type="xs:string" name="Plural3"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,22 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Estrenos_Disney">
+    <xs:annotation>
+      <xs:documentation>Escribe un documento XML bien formado para representar los datos más relevantes de los cinco primeros estrenos de películas de Walt Disney</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Pelicula" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element type="xs:string" name="Fecha"/>
+              <xs:element type="xs:string" name="Directores"/>
+              <xs:element type="xs:string" name="Escritores"/>
+              <xs:element type="xs:string" name="Productores"/>
+              <xs:element type="xs:string" name="Compositores"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
